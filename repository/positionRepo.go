@@ -23,14 +23,14 @@ func NewPositionRepo() IPositionRepo {
 }
 
 func (r positionRepo) Save(p model.Position) error {
-	result := r.Driver.
+	err := r.Driver.
 		Where(model.Position{PlanetID: p.PlanetID, Day: p.Day}).
-		Assign(model.Position{X: p.X, Y: p.Y}).
-		FirstOrCreate(&p)
+		Attrs(p).
+		FirstOrCreate(&p).Error
 
-	if result.Error != nil {
-		logrus.Errorf("[PositionRepo.Save] (%d, %d) Error: %s", p.PlanetID, p.Day, result.Error)
-		return result.Error
+	if err != nil {
+		logrus.Errorf("[PositionRepo.Save] (%d, %d) Error: %s", p.PlanetID, p.Day, err.Error())
+		return err
 	}
 	return nil
 }

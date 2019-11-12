@@ -11,20 +11,21 @@ import (
 func sampleSeedHandler(c echo.Context) error {
 	var response []string
 	// Planets
-	planets := service.GetDefaultPlanets()
+	planets := service.PlanetService.GetList()
 
 	for _, planet := range planets {
-		err := planet.Save()
-		if err != nil {
+		err := service.PlanetService.Save(planet)
+		if err == nil {
 			response = append(response, fmt.Sprintf("Planet created successfully: %s", planet.Name))
 		}
 	}
 
-	g := service.NewGalaxy()
-
-	for day := uint(0); day < 10; day++ {
-		g.PredictWeather(day)
+	// Weather
+	for day := uint(0); day < 1*365; day++ {
+		w, err := service.GalaxyService.PredictWeather(day)
+		if err == nil && w != nil {
+			response = append(response, fmt.Sprintf("Weather for day %d predicted successfully: %s", w.Day, w.WeatherType.String()))
+		}
 	}
-
 	return c.JSON(http.StatusOK, response)
 }

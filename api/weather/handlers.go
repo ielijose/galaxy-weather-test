@@ -10,12 +10,11 @@ import (
 )
 
 func weatherByDayHandler(c echo.Context) error {
-	d, _ := strconv.Atoi(c.Param("day"))
+	d, _ := strconv.Atoi(c.QueryParam("day"))
 	if d < 0 {
 		return errors.New("invalid day")
 	}
 	day := uint(d)
-
 	response, err := service.WeatherService.GetByDay(day)
 	if err != nil {
 		return err

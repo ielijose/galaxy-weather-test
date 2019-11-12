@@ -1,7 +1,6 @@
 package model
 
 import (
-	"galaxy-weather/service"
 	"galaxy-weather/utils"
 	"math"
 )
@@ -43,11 +42,9 @@ func (p Planet) GetPointByDay(day uint) Position {
 	y := math.Sin(radians) * float64(p.Distance)
 
 	return Position{
-		X: x,
-		Y: y,
+		PlanetID: p.ID,
+		Day:      day,
+		X:        x,
+		Y:        y,
 	}
-}
-
-func (p Planet) Save() error {
-	return service.PlanetService.Save(p)
 }

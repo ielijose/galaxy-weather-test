@@ -11,6 +11,7 @@ import (
 
 type IPlanetRepo interface {
 	Save(planet model.Planet) error
+	GetAll() (model.Planet, model.Planet, model.Planet)
 }
 
 type planetRepo struct {
@@ -31,4 +32,35 @@ func (pr planetRepo) Save(planet model.Planet) error {
 		return result.Error
 	}
 	return nil
+}
+
+func (pr planetRepo)  GetAll() (model.Planet, model.Planet, model.Planet) {
+	ferengi := model.Planet{
+		ID:              1,
+		Name:            "Ferengi",
+		AngularVelocity: 1,
+		Distance:        500,
+		Direction:       model.Clockwise,
+		Radio:           80,
+	}
+
+	betasoide := model.Planet{
+		ID:              2,
+		Name:            "Betasoide",
+		AngularVelocity: 3,
+		Distance:        2000,
+		Direction:       model.Clockwise,
+		Radio:           30,
+	}
+
+	vulcano := model.Planet{
+		ID:              3,
+		Name:            "Vulcano",
+		AngularVelocity: 5,
+		Distance:        1000,
+		Direction:       model.CounterClockwise,
+		Radio:           50,
+	}
+
+	return ferengi, betasoide, vulcano
 }
