@@ -2,9 +2,8 @@ package database
 
 import (
 	"fmt"
-	"galaxy-weather/pkg/planet"
-	"galaxy-weather/pkg/position"
-	"galaxy-weather/pkg/weather"
+	"galaxy-weather/model"
+
 	"os"
 
 	"github.com/jinzhu/gorm"
@@ -50,7 +49,9 @@ func Client() *gorm.DB {
 }
 
 func Migrate(db *gorm.DB) {
-	db.AutoMigrate(&planet.Planet{})
-	db.AutoMigrate(&weather.Weather{})
-	db.AutoMigrate(&position.Position{})
+	db.AutoMigrate(&model.Planet{})
+	db.AutoMigrate(&model.Weather{})
+	db.AutoMigrate(&model.Position{})
+
+	// seeders.PlanetsSeeder(db)
 }

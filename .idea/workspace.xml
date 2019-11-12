@@ -1,7 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="75668634-62d6-4949-9c70-9564b8b55da3" name="Default Changelist" comment="" />
+    <list default="true" id="75668634-62d6-4949-9c70-9564b8b55da3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/samples/handlers.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/samples/routes.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/galaxy.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/planet.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/position.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/type.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/weather.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/repository/positionRepo.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/repository/weatherRepo.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/galaxyService.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/planetService.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/positionService.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/weatherService.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/api.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/api.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/weather/handlers.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/weather/handlers.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/weather/routes.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/weather/routes.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/galaxy.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/gorm.go" beforeDir="false" afterPath="$PROJECT_DIR$/database/gorm.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/galaxy/factory.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/galaxy/model.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/galaxy/model.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/planet/model.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/planet/service.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/position/model.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/position/repository.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/position/service.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/weather/model.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/weather/repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/repository/planetRepo.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/weather/service.go" beforeDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,19 +48,31 @@
     </option>
   </component>
   <component name="GOROOT" path="$USER_HOME$/.go" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="GoLibraries">
     <option name="indexEntireGoPath" value="false" />
   </component>
   <component name="ProjectId" id="1TKgBkLjxjpMcleFNN3Sxl0Tk7B" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
     <property name="DefaultGoTemplateProperty" value="Go File" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="go.import.settings.migrated" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/pkg/position" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/repository" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Color Scheme Font" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/repository" />
+      <recent name="$PROJECT_DIR$/api/sample" />
       <recent name="$PROJECT_DIR$/pkg/position" />
       <recent name="$PROJECT_DIR$/cmd" />
       <recent name="$PROJECT_DIR$/api/health-check" />
@@ -71,19 +115,19 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
     <proxy>direct</proxy>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/cmd/galaxy.go</url>
-          <line>2</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

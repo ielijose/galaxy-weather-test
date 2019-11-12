@@ -1,9 +1,4 @@
-package weather
-
-type Weather struct {
-	Day         uint `json:"day" gorm:"primary_key"`
-	WeatherType Type `json:"weather"`
-}
+package model
 
 type Type int
 

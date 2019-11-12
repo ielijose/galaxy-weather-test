@@ -1,4 +1,4 @@
-package position
+package model
 
 import "math"
 
@@ -15,5 +15,6 @@ func (p1 *Position) DistanceOf(p2 Position) float64 {
 }
 
 func (p1 *Position) Save() {
-	
+
 }
+

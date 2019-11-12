@@ -1,7 +1,7 @@
-package planet
+package model
 
 import (
-	"galaxy-weather/pkg/position"
+	"galaxy-weather/service"
 	"galaxy-weather/utils"
 	"math"
 )
@@ -34,7 +34,7 @@ func (p Planet) AngularPosition(day uint) uint {
 	return degree
 }
 
-func (p Planet) GetPointByDay(day uint) position.Position {
+func (p Planet) GetPointByDay(day uint) Position {
 	degree := p.AngularPosition(day)
 
 	radians := utils.DegreeToRadian(degree)
@@ -42,8 +42,12 @@ func (p Planet) GetPointByDay(day uint) position.Position {
 	x := math.Cos(radians) * float64(p.Distance)
 	y := math.Sin(radians) * float64(p.Distance)
 
-	return position.Position{
+	return Position{
 		X: x,
 		Y: y,
 	}
+}
+
+func (p Planet) Save() error {
+	return service.PlanetService.Save(p)
 }

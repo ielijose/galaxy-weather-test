@@ -2,8 +2,7 @@ package weather
 
 import (
 	"errors"
-	"galaxy-weather/database/repository"
-	"galaxy-weather/pkg/weather"
+	"galaxy-weather/service"
 	"net/http"
 	"strconv"
 
@@ -17,10 +16,7 @@ func weatherByDayHandler(c echo.Context) error {
 	}
 	day := uint(d)
 
-	weatherRepo := repository.NewWeatherRepo()
-	weatherService := weather.NewWeatherService(weatherRepo)
-
-	response, err := weatherService.GetByDay(day)
+	response, err := service.WeatherService.GetByDay(day)
 	if err != nil {
 		return err
 	}
@@ -41,13 +37,10 @@ func predictWeatherHandler(c echo.Context) error {
 	}
 	to := uint(t)
 
-	weatherRepo := repository.NewWeatherRepo()
-	weatherService := weather.NewWeatherService(weatherRepo)
+	response, err := service.WeatherService.PredictRange(from, to)
 
-	response, err := weatherService.PredictRange(from, to)
 	if err != nil {
 		return err
 	}
 	return c.JSON(http.StatusOK, response)
 }
-
