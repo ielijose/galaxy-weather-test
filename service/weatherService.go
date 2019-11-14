@@ -7,8 +7,7 @@ import (
 
 type IWeatherService interface {
 	GetByDay(day uint) (*model.Weather, error)
-	PredictByDay(day uint) (*model.Weather, error)
-	PredictRange(from, to uint) (*[]model.Weather, error)
+	GetAll() (*[]model.Weather, error)
 	Save(w model.Weather) error
 }
 
@@ -32,18 +31,11 @@ func (ws *weatherService) GetByDay(day uint) (*model.Weather, error) {
 	return data, nil
 }
 
-func (ws *weatherService) PredictByDay(day uint) (*model.Weather, error) {
-	return nil, nil
-}
-
-func (ws *weatherService) PredictRange(from, to uint) (*[]model.Weather, error) {
-	for day := from; day < to; day++ {
-		_, _ = GalaxyService.PredictWeather(day)
-	}
-	return nil, nil
-}
-
 func (ws *weatherService) Save(w model.Weather) error {
 	w.Weather = w.WeatherType.String()
 	return ws.repo.Save(w)
+}
+
+func (ws *weatherService) GetAll() (*[]model.Weather, error) {
+	return ws.repo.GetAll()
 }

@@ -2,6 +2,7 @@ package api
 
 import (
 	healthCheck "galaxy-weather/api/health-check"
+	"galaxy-weather/api/periods"
 	"galaxy-weather/api/samples"
 	"galaxy-weather/api/weather"
 	"net/http"
@@ -37,7 +38,11 @@ func Init() *echo.Echo {
 	wg := api.Group("/weather")
 	weather.Init(wg)
 
-    // api/galaxy-weather/samples
+	// api/galaxy-weather/periods
+	pg := api.Group("/periods")
+	periods.Init(pg)
+
+	// api/galaxy-weather/samples
 	sg := api.Group("/samples")
 	samples.Init(sg)
 

@@ -21,7 +21,7 @@ func sampleSeedHandler(c echo.Context) error {
 	}
 
 	// Weather
-	for day := uint(0); day < 1*365; day++ {
+	for day := uint(0); day < 10*service.GalaxyService.GetDaysPerYear(); day++ {
 		w, err := service.GalaxyService.PredictWeather(day)
 		if err == nil && w != nil {
 			response = append(response, fmt.Sprintf("Weather for day %d predicted successfully: %s", w.Day, w.WeatherType.String()))

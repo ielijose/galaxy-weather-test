@@ -10,22 +10,25 @@ const MaxPerimeter = 6262.300354
 
 type IGalaxyService interface {
 	PredictWeather(uint) (*model.Weather, error)
+	GetDaysPerYear() uint
 }
 
 type galaxyService struct {
-	Ferengi   model.Planet
-	Betasoide model.Planet
-	Vulcano   model.Planet
-	Sun       model.Position
+	Ferengi     model.Planet
+	Betasoide   model.Planet
+	Vulcano     model.Planet
+	Sun         model.Position
+	DaysPerYear uint
 }
 
 func newGalaxyService() IGalaxyService {
 	ferengi, betasoides, vulcanos := PlanetService.GetAll()
 	return &galaxyService{
-		Ferengi:   ferengi,
-		Betasoide: betasoides,
-		Vulcano:   vulcanos,
-		Sun:       model.Position{X: 0.0, Y: 0.0},
+		Ferengi:     ferengi,
+		Betasoide:   betasoides,
+		Vulcano:     vulcanos,
+		Sun:         model.Position{X: 0.0, Y: 0.0},
+		DaysPerYear: vulcanos.GetDaysPerYear(),
 	}
 }
 
@@ -60,6 +63,10 @@ func (gs galaxyService) PredictWeather(day uint) (*model.Weather, error) {
 	}
 
 	return &w, nil
+}
+
+func (gs galaxyService) GetDaysPerYear() uint {
+	return gs.DaysPerYear
 }
 
 func (gs galaxyService) areAligned(p3, p1, p2 model.Position) bool {

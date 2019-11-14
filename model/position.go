@@ -12,6 +12,5 @@ type Position struct {
 }
 
 func (p Position) DistanceOf(p2 Position) float64 {
-	d := math.Sqrt(math.Pow(math.Abs(p2.X-p.X), 2) + math.Pow(math.Abs(p2.Y-p.Y), 2))
-	return d
+	return math.Sqrt(math.Pow(math.Abs(p2.X-p.X), 2) + math.Pow(math.Abs(p2.Y-p.Y), 2))
 }

@@ -11,6 +11,7 @@ import (
 
 type IWeatherRepo interface {
 	GetByDay(day uint) (*model.Weather, error)
+	GetAll() (*[]model.Weather, error)
 	Save(weather model.Weather) error
 }
 
@@ -28,9 +29,20 @@ func (r weatherRepo) GetByDay(day uint) (*model.Weather, error) {
 	weatherData := new(model.Weather)
 	err := r.Driver.Where(model.Weather{Day: day}).First(&weatherData).Error
 	if err != nil {
+		logrus.Errorf("[WeatherRepo.GetByDay] (%d) Error: %s", day, err.Error())
 		return nil, err
 	}
 	return weatherData, nil
+}
+
+func (r weatherRepo) GetAll() (*[]model.Weather, error) {
+	var weathers = make([]model.Weather, 0)
+	err := r.Driver.Find(&weathers).Order("day").Error
+	if err != nil {
+		logrus.Errorf("[WeatherRepo.GetAll] Error: %s", err.Error())
+		return nil, err
+	}
+	return &weathers, nil
 }
 
 func (r weatherRepo) Save(w model.Weather) error {

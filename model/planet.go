@@ -1,11 +1,10 @@
 package model
 
 import (
+	"galaxy-weather/config"
 	"galaxy-weather/utils"
 	"math"
 )
-
-const DegreesCircumference = 360
 
 type direction uint8
 
@@ -24,10 +23,10 @@ type Planet struct {
 }
 
 func (p Planet) AngularPosition(day uint) uint {
-	degree := (day * p.AngularVelocity) % DegreesCircumference
+	degree := (day * p.AngularVelocity) % config.CircumferenceDegrees
 
 	if p.Direction == Clockwise && degree > 0 {
-		degree = DegreesCircumference - degree
+		degree = config.CircumferenceDegrees - degree
 	}
 
 	return degree
@@ -47,4 +46,8 @@ func (p Planet) GetPointByDay(day uint) Position {
 		X:        x,
 		Y:        y,
 	}
+}
+
+func (p Planet) GetDaysPerYear() uint {
+	return config.CircumferenceDegrees / p.AngularVelocity
 }

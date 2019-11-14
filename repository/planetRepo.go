@@ -34,7 +34,7 @@ func (pr planetRepo) Save(planet model.Planet) error {
 	return nil
 }
 
-func (pr planetRepo)  GetAll() (model.Planet, model.Planet, model.Planet) {
+func (pr planetRepo) GetAll() (model.Planet, model.Planet, model.Planet) {
 	ferengi := model.Planet{
 		ID:              1,
 		Name:            "Ferengi",
